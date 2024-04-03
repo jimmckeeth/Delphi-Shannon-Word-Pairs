@@ -1,10 +1,10 @@
-﻿program ShannonizerDemo;
+﻿program ShannonizerSample;
 
 uses
   System.StartUpCopy,
   FMX.Forms,
   Shannonizer_main in 'Shannonizer_main.pas' {Form12},
-  Shannonizer in 'Shannonizer.pas';
+  Shannonizer in '..\Source\Shannonizer.pas';
 
 {$R *.res}
 

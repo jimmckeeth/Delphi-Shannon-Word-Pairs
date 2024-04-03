@@ -3,10 +3,10 @@
         <ProjectGuid>{AE99903F-651B-4FF8-926A-77275E08634D}</ProjectGuid>
     </PropertyGroup>
     <ItemGroup>
-        <Projects Include="ShannonizerDemo.dproj">
+        <Projects Include="Sample\ShannonizerSample.dproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="Shannonizer_Tester.dproj">
+        <Projects Include="Tests\Shannonizer_Tester.dproj">
             <Dependencies/>
         </Projects>
     </ItemGroup>
@@ -17,32 +17,32 @@
             <Default.Personality/>
         </BorlandProject>
     </ProjectExtensions>
-    <Target Name="ShannonizerDemo">
-        <MSBuild Projects="ShannonizerDemo.dproj"/>
+    <Target Name="ShannonizerSample">
+        <MSBuild Projects="Sample\ShannonizerSample.dproj"/>
     </Target>
-    <Target Name="ShannonizerDemo:Clean">
-        <MSBuild Projects="ShannonizerDemo.dproj" Targets="Clean"/>
+    <Target Name="ShannonizerSample:Clean">
+        <MSBuild Projects="Sample\ShannonizerSample.dproj" Targets="Clean"/>
     </Target>
-    <Target Name="ShannonizerDemo:Make">
-        <MSBuild Projects="ShannonizerDemo.dproj" Targets="Make"/>
+    <Target Name="ShannonizerSample:Make">
+        <MSBuild Projects="Sample\ShannonizerSample.dproj" Targets="Make"/>
     </Target>
     <Target Name="Shannonizer_Tester">
-        <MSBuild Projects="Shannonizer_Tester.dproj"/>
+        <MSBuild Projects="Tests\Shannonizer_Tester.dproj"/>
     </Target>
     <Target Name="Shannonizer_Tester:Clean">
-        <MSBuild Projects="Shannonizer_Tester.dproj" Targets="Clean"/>
+        <MSBuild Projects="Tests\Shannonizer_Tester.dproj" Targets="Clean"/>
     </Target>
     <Target Name="Shannonizer_Tester:Make">
-        <MSBuild Projects="Shannonizer_Tester.dproj" Targets="Make"/>
+        <MSBuild Projects="Tests\Shannonizer_Tester.dproj" Targets="Make"/>
     </Target>
     <Target Name="Build">
-        <CallTarget Targets="ShannonizerDemo;Shannonizer_Tester"/>
+        <CallTarget Targets="ShannonizerSample;Shannonizer_Tester"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="ShannonizerDemo:Clean;Shannonizer_Tester:Clean"/>
+        <CallTarget Targets="ShannonizerSample:Clean;Shannonizer_Tester:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="ShannonizerDemo:Make;Shannonizer_Tester:Make"/>
+        <CallTarget Targets="ShannonizerSample:Make;Shannonizer_Tester:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>

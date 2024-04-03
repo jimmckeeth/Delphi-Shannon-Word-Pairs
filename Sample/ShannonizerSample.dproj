@@ -4,7 +4,7 @@
         <AppType>Application</AppType>
         <Config Condition="'$(Config)'==''">Debug</Config>
         <FrameworkType>FMX</FrameworkType>
-        <MainSource>ShannonizerDemo.dpr</MainSource>
+        <MainSource>ShannonizerSample.dpr</MainSource>
         <Platform Condition="'$(Platform)'==''">Win32</Platform>
         <ProjectGuid>{33B9FE5E-728C-4B32-8766-04954D175726}</ProjectGuid>
         <ProjectVersion>20.1</ProjectVersion>
@@ -93,7 +93,7 @@
         <Base>true</Base>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base)'!=''">
-        <SanitizedProjectName>ShannonizerDemo</SanitizedProjectName>
+        <SanitizedProjectName>ShannonizerSample</SanitizedProjectName>
         <AUP_ACCESS_COARSE_LOCATION>true</AUP_ACCESS_COARSE_LOCATION>
         <AUP_ACCESS_FINE_LOCATION>true</AUP_ACCESS_FINE_LOCATION>
         <AUP_CALL_PHONE>true</AUP_CALL_PHONE>
@@ -300,7 +300,7 @@
             <Form>Form12</Form>
             <FormType>fmx</FormType>
         </DCCReference>
-        <DCCReference Include="Shannonizer.pas"/>
+        <DCCReference Include="..\Source\Shannonizer.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
@@ -319,19 +319,17 @@
         <BorlandProject>
             <Delphi.Personality>
                 <Source>
-                    <Source Name="MainSource">ShannonizerDemo.dpr</Source>
+                    <Source Name="MainSource">ShannonizerSample.dpr</Source>
                 </Source>
             </Delphi.Personality>
             <Platforms>
                 <Platform value="Android">True</Platform>
                 <Platform value="Android64">True</Platform>
                 <Platform value="Linux64">True</Platform>
-                <Platform value="OSX32">False</Platform>
                 <Platform value="OSX64">True</Platform>
                 <Platform value="OSXARM64">True</Platform>
                 <Platform value="Win32">True</Platform>
                 <Platform value="Win64">True</Platform>
-                <Platform value="iOSDevice32">False</Platform>
                 <Platform value="iOSDevice64">True</Platform>
                 <Platform value="iOSSimARM64">True</Platform>
             </Platforms>
