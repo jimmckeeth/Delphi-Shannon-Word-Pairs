@@ -300,7 +300,7 @@
             <Form>Form12</Form>
             <FormType>fmx</FormType>
         </DCCReference>
-        <DCCReference Include="..\Source\Shannonizer.pas"/>
+        <DCCReference Include="..\Shannonizer.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

@@ -4,7 +4,7 @@ uses
   System.StartUpCopy,
   FMX.Forms,
   Shannonizer_main in 'Shannonizer_main.pas' {Form12},
-  Shannonizer in '..\Source\Shannonizer.pas';
+  Shannonizer in '..\Shannonizer.pas';
 
 {$R *.res}
 

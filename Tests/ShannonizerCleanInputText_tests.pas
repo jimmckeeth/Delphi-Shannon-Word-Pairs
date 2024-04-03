@@ -6,6 +6,7 @@ uses
   DUnitX.TestFramework, Shannonizer;
 
 type
+
   [TestFixture]
   TShannonizerCleanInputTextTests = class
   public
@@ -13,7 +14,6 @@ type
     procedure Setup;
     [TearDown]
     procedure TearDown;
-
 
     [Test]
     procedure Test_CleanInputText_WithSpaces;
@@ -32,22 +32,29 @@ implementation
 
 procedure TShannonizerCleanInputTextTests.Test_CleanInputText_WithSpaces;
 begin
-  Assert.AreEqual('This is a test.', TShannonizer.CleanInputText('This  is a  test. '));
+  Assert.AreEqual('This is a test.',
+    TShannonizer.CleanInputText('This  is a  test. '));
 end;
 
 procedure TShannonizerCleanInputTextTests.Test_CleanInputText_WithTabs;
 begin
-  Assert.AreEqual('This is a test.', TShannonizer.CleanInputText('This	is	a	test.'));
+  Assert.AreEqual('This is a test.',
+    TShannonizer.CleanInputText('This	is	a	test.'));
 end;
 
 procedure TShannonizerCleanInputTextTests.Test_CleanInputText_WithLineBreaks;
 begin
-  Assert.AreEqual('This is a test.', TShannonizer.CleanInputText('This' + sLineBreak + 'is' + sLineBreak + 'a' + sLineBreak + 'test.'));
+  Assert.AreEqual('This is a test.',
+    TShannonizer.CleanInputText('This' + sLineBreak + 'is' + sLineBreak + 'a' +
+    sLineBreak + 'test.'));
 end;
 
-procedure TShannonizerCleanInputTextTests.Test_CleanInputText_WithMixedWhitespace;
+procedure TShannonizerCleanInputTextTests.
+  Test_CleanInputText_WithMixedWhitespace;
 begin
-  Assert.AreEqual('This is a test.', TShannonizer.CleanInputText(#13#10'This  '#13'is	' + sLineBreak + ' a	'#10'test. '));
+  Assert.AreEqual('This is a test.',
+    TShannonizer.CleanInputText(#13#10'This  '#13'is	' + sLineBreak +
+    ' a	'#10'test. '));
 end;
 
 procedure TShannonizerCleanInputTextTests.Setup;
@@ -59,6 +66,7 @@ begin
 end;
 
 initialization
-  TDUnitX.RegisterTestFixture(TShannonizerCleanInputTextTests);
+
+TDUnitX.RegisterTestFixture(TShannonizerCleanInputTextTests);
 
 end.

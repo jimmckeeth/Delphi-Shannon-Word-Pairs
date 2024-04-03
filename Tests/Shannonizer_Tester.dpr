@@ -13,7 +13,7 @@ uses
   {$ENDIF }
   DUnitX.TestFramework,
   ShannonizerCleanInputText_tests in 'ShannonizerCleanInputText_tests.pas',
-  Shannonizer in '..\Source\Shannonizer.pas',
+  Shannonizer in '..\Shannonizer.pas',
   ShannonizerExtractLastToken_tests in 'ShannonizerExtractLastToken_tests.pas',
   Shannonizer_tests in 'Shannonizer_tests.pas';
 

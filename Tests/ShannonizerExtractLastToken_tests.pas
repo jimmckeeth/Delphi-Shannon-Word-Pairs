@@ -1,9 +1,9 @@
 ﻿unit ShannonizerExtractLastToken_tests;
 
 interface
+
 uses
-  DUnitX.TestFramework,
-  Shannonizer; // Ensure this matches the actual unit name where TShannonizer is defined
+  DUnitX.TestFramework, Shannonizer;
 
 type
 
@@ -35,7 +35,8 @@ end;
 
 procedure TExtractLastTokenTests.TestWithPunctuation;
 begin
-  Assert.AreEqual('sentence.', TShannonizer.ExtractLastToken('This is a sentence.'));
+  Assert.AreEqual('sentence.', TShannonizer.ExtractLastToken
+    ('This is a sentence.'));
 end;
 
 procedure TExtractLastTokenTests.TestWithSingleWord;
@@ -50,10 +51,12 @@ end;
 
 procedure TExtractLastTokenTests.TestWithNoWords;
 begin
-  Assert.AreEqual('', TShannonizer.ExtractLastToken('     ')); // Expect an empty string for input of only spaces
+  Assert.AreEqual('', TShannonizer.ExtractLastToken('     '));
+  // Expect an empty string for input of only spaces
 end;
 
 initialization
-  TDUnitX.RegisterTestFixture(TExtractLastTokenTests);
-end.
 
+TDUnitX.RegisterTestFixture(TExtractLastTokenTests);
+
+end.

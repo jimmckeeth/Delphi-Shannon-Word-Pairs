@@ -13,7 +13,7 @@ type
     FShannonizer: TShannonizer;
   public
     [Setup]
-    procedure SetUp;
+    procedure Setup;
 
     [TearDown]
     procedure TearDown;
@@ -24,7 +24,7 @@ type
 
 implementation
 
-procedure TTestShannonizer.SetUp;
+procedure TTestShannonizer.Setup;
 begin
   FShannonizer := TShannonizer.Create;
 end;
@@ -66,7 +66,7 @@ begin
 end;
 
 initialization
-  TDUnitX.RegisterTestFixture(TTestShannonizer);
+
+TDUnitX.RegisterTestFixture(TTestShannonizer);
 
 end.
-

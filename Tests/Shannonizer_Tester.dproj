@@ -75,7 +75,7 @@
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
         <DCCReference Include="ShannonizerCleanInputText_tests.pas"/>
-        <DCCReference Include="..\Source\Shannonizer.pas"/>
+        <DCCReference Include="..\Shannonizer.pas"/>
         <DCCReference Include="ShannonizerExtractLastToken_tests.pas"/>
         <DCCReference Include="Shannonizer_tests.pas"/>
         <BuildConfiguration Include="Base">

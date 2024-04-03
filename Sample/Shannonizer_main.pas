@@ -3,7 +3,8 @@
 interface
 
 uses
-  System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
+  System.SysUtils, System.Types, System.UITypes, System.Classes,
+  System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs,
   FMX.Memo.Types, FMX.StdCtrls, FMX.Controls.Presentation, FMX.ScrollBox,
   FMX.Memo, Shannonizer, FMX.Edit, FMX.EditBox, FMX.SpinBox;
@@ -56,7 +57,7 @@ implementation
 
 procedure TForm12.AnalyzeButtonClick(Sender: TObject);
 begin
-  FShannon.AnalyzeText(memo1.Text);
+  FShannon.AnalyzeText(Memo1.Text);
   Memo1.Text := 'Romeo';
 end;
 
@@ -65,8 +66,8 @@ begin
   CheckRandom;
   RandSeed := Round(seedEdit.Value);
 
-  memo1.Lines.Add(FShannon.GenerateText(Memo1.Text, 100));
-  memo1.Lines.Add(sLineBreak);
+  Memo1.Lines.Add(FShannon.GenerateText(Memo1.Text, 100));
+  Memo1.Lines.Add(sLineBreak);
 end;
 
 procedure TForm12.CheckRandom;
@@ -98,7 +99,7 @@ procedure TForm12.LoadBtnClick(Sender: TObject);
 begin
   if OpenAnalysisDialog.Execute then
     FShannon.LoadFromFile(OpenAnalysisDialog.FileName);
-  
+
 end;
 
 procedure TForm12.LoadTextBtnClick(Sender: TObject);
