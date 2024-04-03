@@ -1,34 +1,74 @@
-// https://github.com/jimmckeeth/Delphi-Shannon-Word-Pairs/
+// Source: https://github.com/jimmckeeth/Delphi-Shannon-Word-Pairs/
 unit Shannonizer;
 
 interface
 
 uses
-  System.SysUtils, System.Classes,
-  System.Zip, // Add this for zip compression functionality
-  System.Generics.Collections;
+  System.SysUtils, System.Classes, System.Zip, System.Generics.Collections;
 
 type
   TTokenProbability = TDictionary<string, TDictionary<string, Integer>>;
   TTokenFrequencies = TDictionary<string, Integer>;
 
+  /// <summary>
+  /// Analyzes test for the how frequently one word follows another.
+  /// When given a seed word, automatically generates random new text
+  /// based on the previously analyzed frequence.
+  /// </summary>
   TShannonizer = class
   private
     FProbabilities: TTokenProbability;
     FFrequencies: TTokenFrequencies;
   public
-    class function CleanInputText(const Text: string): string;
-    class function ExtractLastToken(const Text: string): string; static;
     constructor Create;
     destructor Destroy; override;
+    /// <summary>
+    /// Converts and removes problematic characters and whitespace
+    /// </summary>
+    class function CleanInputText(const Text: string): string; static;
+    /// <summary>
+    /// Extracts the last token from the input text for use in generating new text
+    /// </summary>
+    class function ExtractLastToken(const Text: string): string; static;
+    /// <summary>
+    /// Tokenizes the input text and creates a frequency analysis
+    /// (Automatically calls CleanInputText)
+    /// </summary>
     procedure AnalyzeText(const Text: string);
+    /// <summary>
+    /// Uses the last token from StartWord to seed new generated text.
+    /// Stops after Length tokens (words) or if a new word cannot be found.
+    /// Uses the RandSeed to randomize the output.
+    /// </summary>
     function GenerateText(const StartWord: string; Length: Integer): string;
+    /// <summary>
+    /// Loads a previously saved analysis from file
+    /// </summary>
     procedure LoadFromFile(const FileName: string);
+    /// <summary>
+    /// Saves the current analysis to file
+    /// </summary>
     procedure SaveToFile(const FileName: string);
+    /// <summary>
+    /// Serializes the current analysis to a string
+    /// </summary>
     function SaveToString: string;
+    /// <summary>
+    /// Serializes the current analysis to a steam (used by SaveToFile and SaveToString)
+    /// </summary>
     procedure SaveToStream(Stream: TStream);
-    procedure LoadFromStream(Stream: TStream);
+    /// <summary>
+    /// Loads analysis data from a string
+    /// </summary>
     procedure LoadFromString(const DataString: string);
+    /// <summary>
+    /// Loads analysis data from a stream (used by LoadFromStream and LoadFromFile)
+    /// </summary>
+    procedure LoadFromStream(Stream: TStream);
+    /// <summary>
+    /// Clears all token and frequency infromation.
+    /// Multiple AnalyzeText or Load calls will append to the existing analysis.
+    /// </summary>
     procedure Clear;
   end;
 
@@ -36,9 +76,9 @@ implementation
 
 { TShannonizer }
 
-const InternalFileName: string = 'Shannonizer.csv';
+const
+  InternalFileName: string = 'Shannonizer.csv';
 
-// Converts CR/LF/TAB and Double spaces into a single space
 class function TShannonizer.CleanInputText(const Text: string): string;
 var
   I, ResultLen: Integer;
@@ -52,9 +92,11 @@ begin
   for I := 1 to Length(Text) do
   begin
     case Text[I] of
-      #13, #10, #9, ' ', '|': // Handle CR, LF, tabs, spaces and pipe (used in saving)
+      #13, #10, #9, ' ', '|':
+      // Handle CR, LF, tabs, spaces and pipe (used in saving)
         begin
-          if not InSpace and not StartTrimming then // If not already in a space sequence and not at the start
+          if not InSpace and not StartTrimming then
+          // If not already in a space sequence and not at the start
           begin
             InSpace := True; // Mark that we're now handling a space
             Inc(ResultLen);
@@ -104,7 +146,6 @@ begin
   end;
 end;
 
-
 constructor TShannonizer.Create;
 begin
   inherited;
@@ -121,18 +162,18 @@ end;
 
 procedure TShannonizer.AnalyzeText(const Text: string);
 (*
-Tokenization: It splits the input text into an array of lowercase words (Words).
-This is a very basic form of tokenization and might need to be expanded to
-correctly handle punctuation, whitespace, and other linguistic nuances depending
-on your requirements.
+  Tokenization: It splits the input text into an array of lowercase words (Words).
+  This is a very basic form of tokenization and might need to be expanded to
+  correctly handle punctuation, whitespace, and other linguistic nuances depending
+  on your requirements.
 
-Frequency Counting: For each pair of adjacent tokens (Token and NextToken), the
-code increments the frequency count of Token in FFrequencies and the occurrence
-count of NextToken following Token in FProbabilities.
+  Frequency Counting: For each pair of adjacent tokens (Token and NextToken), the
+  code increments the frequency count of Token in FFrequencies and the occurrence
+  count of NextToken following Token in FProbabilities.
 
-Data Structures Update: If a token or token pair does not exist in the respective
-dictionaries, it gets added with an initial count of 1. If it already exists,
-its count is incremented.
+  Data Structures Update: If a token or token pair does not exist in the respective
+  dictionaries, it gets added with an initial count of 1. If it already exists,
+  its count is incremented.
 *)
 var
   Words: TArray<string>;
@@ -173,28 +214,29 @@ begin
     FFrequencies[Token] := FFrequencies[Token] + 1;
 end;
 
-function TShannonizer.GenerateText(const StartWord: string; Length: Integer): string;
+function TShannonizer.GenerateText(const StartWord: string;
+  Length: Integer): string;
 (*
-Starting Point: The function begins with a StartWord and appends it to the
-result. It then iterates, generating each subsequent word based on the
-probabilities until it reaches the desired length or runs out of known word
-sequences.
+  Starting Point: The function begins with a StartWord and appends it to the
+  result. It then iterates, generating each subsequent word based on the
+  probabilities until it reaches the desired length or runs out of known word
+  sequences.
 
-Random Choice Based on Probabilities: For each word, it looks up the next possible
-words and their frequencies. It then makes a "random choice" among these next words
-weighted by their frequencies. This is where the Markov chain behavior comes in, as
-the choice of the next word depends solely on the current word.
+  Random Choice Based on Probabilities: For each word, it looks up the next possible
+  words and their frequencies. It then makes a "random choice" among these next words
+  weighted by their frequencies. This is where the Markov chain behavior comes in, as
+  the choice of the next word depends solely on the current word.
 
-Selecting the Next Word: It randomly selects the next word based on the weighted
-probabilities by creating a cumulative distribution and selecting a word once the
-random choice falls within its range in the distribution.
+  Selecting the Next Word: It randomly selects the next word based on the weighted
+  probabilities by creating a cumulative distribution and selecting a word once the
+  random choice falls within its range in the distribution.
 
-Handling Unknown Words: If the method encounters a word with no known followers
-(not in FProbabilities), it stops generating further words. This might happen if
-the input StartWord is not in the analyzed text or if it only appears at the end.
+  Handling Unknown Words: If the method encounters a word with no known followers
+  (not in FProbabilities), it stops generating further words. This might happen if
+  the input StartWord is not in the analyzed text or if it only appears at the end.
 
-Resulting Text: The generated words are concatenated into a single string,
-forming the generated text.
+  Resulting Text: The generated words are concatenated into a single string,
+  forming the generated text.
 *)
 var
   CurrentWord, NextWord: string;
@@ -207,7 +249,8 @@ begin
   // Generate words up to the desired length
   for I := 1 to Length - 1 do
   begin
-    if not FProbabilities.ContainsKey(CurrentWord) then Break; // Stop if no known next word
+    if not FProbabilities.ContainsKey(CurrentWord) then
+      Break; // Stop if no known next word
 
     TotalOccurrences := 0;
     WordList := FProbabilities[CurrentWord].Keys.ToArray;
@@ -276,7 +319,8 @@ begin
         if not FProbabilities[Token].ContainsKey(NextToken) then
           FProbabilities[Token].Add(NextToken, Count)
         else
-          FProbabilities[Token][NextToken] := Count; // This case might not be necessary depending on your data uniqueness
+          FProbabilities[Token][NextToken] := Count;
+        // This case might not be necessary depending on your data uniqueness
 
         // Safely update FFrequencies
         if not FFrequencies.ContainsKey(Token) then
@@ -290,11 +334,10 @@ begin
   end;
 end;
 
-
 procedure TShannonizer.SaveToStream(Stream: TStream);
 (*
-Data Serialization: The probabilities are serialized in a simple
-token|nextToken|count
+  Data Serialization: The probabilities are serialized in a simple
+  token|nextToken|count
 *)
 var
   StreamWriter: TStreamWriter;
@@ -316,7 +359,6 @@ begin
     StreamWriter.Free;
   end;
 end;
-
 
 function TShannonizer.SaveToString: String;
 var
@@ -346,7 +388,8 @@ begin
     ZipFile := TZipFile.Create;
     try
       ZipFile.Open(FileName, zmWrite); // Open the zip file for writing
-      ZipFile.Add(MemoryStream, InternalFileName); // Add the stream content as 'InternalFileName inside the zip
+      ZipFile.Add(MemoryStream, InternalFileName);
+      // Add the stream content as 'InternalFileName inside the zip
     finally
       ZipFile.Free;
     end;
@@ -361,7 +404,7 @@ var
   ZipFile: TZipFile;
   LocalHeader: TZipHeader;
 begin
-  //MemoryStream := TMemoryStream.Create;
+  // MemoryStream := TMemoryStream.Create;
   ZipFile := TZipFile.Create;
   try
     ZipFile.Open(FileName, zmRead); // Open the zip file for reading
@@ -380,6 +423,4 @@ begin
   end;
 end;
 
-
 end.
-
