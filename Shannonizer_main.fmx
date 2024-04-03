@@ -1,0 +1,391 @@
+object Form12: TForm12
+  Left = 0
+  Top = 0
+  Caption = 'Claude Shannon'#39's Word Pairs in Delphi'
+  ClientHeight = 452
+  ClientWidth = 400
+  Constraints.MinHeight = 320.000000000000000000
+  Constraints.MinWidth = 400.000000000000000000
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  DesignerMasterStyle = 0
+  object Memo1: TMemo
+    Touch.InteractiveGestures = [Pan, LongTap, DoubleTap]
+    DataDetectorTypes = []
+    Lines.Strings = (
+      'Two households, both alike in dignity,'
+      'In fair Verona, where we lay our scene,'
+      'From ancient grudge break to new mutiny.'
+      'Where civil blood makes civil hands unclean.'
+      'From forth the fatal loins of these two foes'
+      'A pair of star-cross'#39'd lovers take their life;'
+      'Whose misadventured piteous overthrows'
+      'Do with their death bury their parents'#39' strife.'
+      'The fearful passage of their death-mark'#39'd'
+      'love,'
+      'And the continuance of their parents'#39' rage,'
+      'Which, but their children'#39's end, nought could remove,'
+      'Is now the two hours'#39' traffic of our stage;'
+      'The which if you with patient ears attend,'
+      'What here shall miss, our toil shall strive to mend.'
+      ''
+      'O Romeo, Romeo! wherefore'
+      'art thou Romeo?'
+      'Deny thy father, and refuse thy name;'
+      'Or, if thou wilt not, be but sworn my love,'
+      'And I'#8217'll no longer be a Capulet. '
+      'Shall I hear more, or shall I speak at this? '
+      #8217'Tis but thy name that is my enemy;'
+      'Thou art thyself, though not a Montague.'
+      'What'#8217's Montague? it is nor hand, nor foot,'
+      'Nor arm, nor face, nor any other part'
+      'Belonging to a man. O! be some other name:'
+      'What'#8217's in a name? that which we call a rose'
+      'By any other name would smell as sweet;'
+      'So Romeo would, were he not Romeo call'#8217'd,'
+      'Retain that dear perfection which he owes'
+      'Without that title. Romeo, doff'
+      'thy name;'
+      'And for that name, which is no part of thee,'
+      'Take all myself.'
+      ''
+      'I take thee at thy word.'
+      'Call me but love, and I'#8217'll be new baptiz'#8217'd;'
+      'Henceforth I never will be Romeo.'
+      ''
+      'What man art thou, that, thus be-screen'#8217'd in night,'
+      'So stumblest on my counsel?'
+      ''
+      'By a name'
+      'I know not how to tell thee who I am:'
+      'My name, dear saint, is hateful to myself,'
+      'Because it is an enemy to thee:'
+      'Had I it written, I would tear the word.'
+      ''
+      'My ears have not yet drunk a hundred words'
+      'Of that tongue'#8217's uttering, yet I know the sound:'
+      'Art thou not Romeo, and a Montague? '
+      'Neither, fair maid, if either thee dislike'
+      ''
+      'How cam'#8217'st thou hither, tell me, and wherefore?'
+      'The orchard walls are high and hard to climb,'
+      'And the place death, considering who thou art,'
+      'If any of my kinsmen'
+      'find thee here.'
+      ''
+      'With love'#8217's light wings did I o'#8217'erperch these walls;'
+      'For stony limits cannot hold love out,'
+      'And what love can do that dares love attempt;'
+      'Therefore thy kinsmen are no stop to me. '
+      ''
+      'O me, what fray was here?'
+      'Yet tell me not, for I have heard it all.'
+      'Here'#8217's much to do with hate, but more with love.'
+      ''
+      'I fear too early, for my mind misgives;'
+      'Some consequence, yet hanging in the stars,'
+      'Shall bitterly begin. '
+      ''
+      'O she doth teach the torches to burn bright.'
+      'It seems she hangs upon the cheek of night'
+      'As a rich jewel in an Ethiope'#8217's ear.'
+      ''
+      'But soft, what light through yonder window breaks?'
+      'It is the east, and Juliet is the sun.'
+      ''
+      'With love'#8217's light wings did I o'#8217'erperch these walls,'
+      'For stony limits cannot hold love out.'
+      ''
+      'O sweet Juliet'
+      'Thy beauty hath made me effeminate'
+      'And in my temper softened valor'#8217's steel!'
+      ''
+      'Let'#8217's talk; it is not day.'
+      ''
+      'I defy you, stars!'
+      ''
+      'My only love sprung from my only hate'
+      'Too early seen unknown, and known too late!'
+      ''
+      'What'#8217's Montague? It is nor hand nor foot,'
+      'Nor arm nor face nor any other part'
+      'Belonging to a man. Oh, be some other name!'
+      'What'#8217's in a name? That which we call a rose'
+      'By any other word would smell as sweet.'
+      ''
+      'My bounty is as boundless as the sea,'
+      'My love as deep; the more I give to thee,'
+      'The more I have, for both are infinite.'
+      ''
+      'Hist, Romeo, hist! O for a falconer'#8217's voice'
+      'To lure this tassel-gentle back again.'
+      ''
+      'Come, gentle night, come, loving black-browed night,'
+      'Give me my Romeo, and when I shall die,'
+      'Take him and cut him out in little stars. '
+      ''
+      'So tedious is this day'
+      'As is the night before some festival'
+      'To an impatient child that hath new robes'
+      'And may not wear them. '
+      ''
+      'O God, I have an ill-divining soul!'
+      'Methinks I see thee now, thou art so low,'
+      'As one dead in the bottom of a tomb.'
+      ''
+      'I will kiss thy lips.'
+      'Haply some poison yet doth hang on them'
+      'To make me die with a restorative. '
+      ''
+      
+        'I will push Montague'#8217's men from the wall and thrust his maids to' +
+        ' the wall'
+      ''
+      
+        'now art thou what thou art, by art as well as by nature, for thi' +
+        's drivelling love is like a great natural that runs lolling up a' +
+        'nd down to hide his bauble in a hole.'
+      ''
+      'Come, gentle night, come, loving black-browed night,'
+      'Give me my Romeo, and when I shall die,'
+      'Take him and cut him out in little stars'
+      ''
+      'Alas, that love, whose view is muffled still,'
+      'Should without eyes see pathways to his will'
+      ''
+      'My only love sprung from my only hate,'
+      'Too early seen unknown, and known too late!'
+      'Prodigious birth of love is it to me'
+      'That I must love a loathed enemy.'
+      ''
+      'With love'#8217's light wings did I o'#8217'erperch these walls,'
+      'For stony limits cannot hold love out'
+      ''
+      'My bounty is as boundless as the sea,'
+      'My love as deep; the more I give to thee,'
+      'The more I have, for both are infinite. '
+      ''
+      'O, then I see Queen Mab hath been with you. . . .'
+      'She is the fairies'#8217' midwife, and she comes'
+      'In shape no bigger than an agate stone'
+      'On the forefinger of an alderman,'
+      'Drawn with a team of little atomi'
+      'Athwart men'#8217's noses as they lie asleep.'
+      ''
+      'From forth the fatal loins of these two foes'
+      'A pair of star-crossed lovers take their life,'
+      'Whose misadventured piteous overthrows'
+      'Doth with their death bury their parents'#8217' strife. . . .'
+      ''
+      'O, I am fortune'#8217's fool! . . .')
+    TextSettings.WordWrap = True
+    Anchors = [akLeft, akTop, akRight, akBottom]
+    Position.X = 8.000000000000000000
+    Position.Y = 48.000000000000000000
+    Size.Width = 265.000000000000000000
+    Size.Height = 396.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    Viewport.Width = 245.000000000000000000
+    Viewport.Height = 392.000000000000000000
+  end
+  object AnalyizeBtn: TButton
+    Position.X = 203.000000000000000000
+    Position.Y = 8.000000000000000000
+    Size.Width = 90.000000000000000000
+    Size.Height = 32.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 1
+    Text = 'Analyize'
+    TextSettings.Trimming = None
+    OnClick = AnalyzeButtonClick
+  end
+  object GenerateBtn: TButton
+    Position.X = 301.000000000000000000
+    Position.Y = 8.000000000000000000
+    Size.Width = 90.000000000000000000
+    Size.Height = 32.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 2
+    Text = 'Generate'
+    TextSettings.Trimming = None
+    OnClick = GenerateButtonClick
+  end
+  object SaveAnalysisBtn: TButton
+    Anchors = [akTop, akRight]
+    Position.X = 282.000000000000000000
+    Position.Y = 233.000000000000000000
+    Size.Width = 110.000000000000000000
+    Size.Height = 21.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 4
+    Text = 'Save'
+    TextSettings.Trimming = None
+    OnClick = SaveBtnClick
+  end
+  object LoadAnalysisBtn: TButton
+    Anchors = [akTop, akRight]
+    Position.X = 282.000000000000000000
+    Position.Y = 261.000000000000000000
+    Size.Width = 110.000000000000000000
+    Size.Height = 19.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 5
+    Text = 'Load'
+    TextSettings.Trimming = None
+    OnClick = LoadBtnClick
+  end
+  object seedEdit: TSpinBox
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    Anchors = [akTop, akRight]
+    TabOrder = 8
+    Cursor = crIBeam
+    Min = -2147483648.000000000000000000
+    Max = 2147483647.000000000000000000
+    Position.X = 282.000000000000000000
+    Position.Y = 104.000000000000000000
+    Size.Width = 110.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+  end
+  object Label1: TLabel
+    Anchors = [akTop, akRight]
+    Position.X = 282.000000000000000000
+    Position.Y = 88.000000000000000000
+    Size.Width = 110.000000000000000000
+    Size.Height = 17.000000000000000000
+    Size.PlatformDefault = False
+    TextSettings.HorzAlign = Center
+    TextSettings.Trimming = None
+    Text = 'Seed'
+    TabOrder = 9
+  end
+  object tokenEdit: TSpinBox
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    Anchors = [akTop, akRight]
+    TabOrder = 6
+    Cursor = crIBeam
+    Max = 1000.000000000000000000
+    Value = 100.000000000000000000
+    Position.X = 282.000000000000000000
+    Position.Y = 66.000000000000000000
+    Size.Width = 110.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+  end
+  object Label2: TLabel
+    Anchors = [akTop, akRight]
+    Position.X = 282.000000000000000000
+    Position.Y = 48.000000000000000000
+    Size.Width = 110.000000000000000000
+    Size.Height = 17.000000000000000000
+    Size.PlatformDefault = False
+    TextSettings.HorzAlign = Center
+    TextSettings.Trimming = None
+    Text = 'Tokens'
+    TabOrder = 7
+  end
+  object randomBtn: TButton
+    Anchors = [akTop, akRight]
+    Position.X = 282.000000000000000000
+    Position.Y = 139.000000000000000000
+    Size.Width = 110.000000000000000000
+    Size.Height = 34.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 3
+    TextSettings.Trimming = None
+    OnClick = randomChkClick
+    object randomChk: TCheckBox
+      Align = Center
+      HitTest = False
+      IsChecked = True
+      Size.Width = 65.000000000000000000
+      Size.Height = 22.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 5
+      Text = 'Random'
+      OnClick = randomChkClick
+    end
+  end
+  object Label3: TLabel
+    Anchors = [akTop, akRight]
+    Position.X = 282.000000000000000000
+    Position.Y = 208.000000000000000000
+    Size.Width = 110.000000000000000000
+    Size.Height = 17.000000000000000000
+    Size.PlatformDefault = False
+    TextSettings.HorzAlign = Center
+    TextSettings.Trimming = None
+    Text = 'Analysis'
+    TabOrder = 12
+  end
+  object ClearBtn: TButton
+    Anchors = [akRight, akBottom]
+    Position.X = 282.000000000000000000
+    Position.Y = 422.000000000000000000
+    Size.Width = 110.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 13
+    Text = 'Clear'
+    TextSettings.Trimming = None
+    OnClick = ClearBtnClick
+  end
+  object SaveAnalysisDialog: TSaveDialog
+    DefaultExt = '.shan'
+    FileName = 'Shannonizer.shan'
+    Filter = '*.shan|*.shan|*.csv|*.csv|*.*|*.*'
+    Title = 'Analysis'
+    Left = 112
+    Top = 280
+  end
+  object OpenAnalysisDialog: TOpenDialog
+    DefaultExt = '.shan'
+    FileName = 'Shannonizer.shan'
+    Filter = '*.shan|*.shan|*.csv|*.csv|*.*|*.*'
+    Title = 'Analysis'
+    Left = 112
+    Top = 336
+  end
+  object LoadTextBtn: TButton
+    Position.X = 8.000000000000000000
+    Position.Y = 8.000000000000000000
+    Size.Width = 90.000000000000000000
+    Size.Height = 32.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 17
+    Text = 'Load Text'
+    TextSettings.Trimming = None
+    OnClick = LoadTextBtnClick
+  end
+  object SaveTextBtn: TButton
+    Position.X = 106.000000000000000000
+    Position.Y = 8.000000000000000000
+    Size.Width = 90.000000000000000000
+    Size.Height = 32.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 16
+    Text = 'Save Text'
+    TextSettings.Trimming = None
+    OnClick = SaveTextBtnClick
+  end
+  object SaveTextDialog: TSaveDialog
+    DefaultExt = '.txt'
+    FileName = 'Shannonizer.txt'
+    Filter = '*.txt|*.txt|*.*|*.*'
+    Title = 'Text'
+    Left = 256
+    Top = 288
+  end
+  object OpenTextDialog: TOpenDialog
+    DefaultExt = '.txt'
+    FileName = 'Romeo.txt'
+    Filter = '*.txt|*.txt|*.*|*.*'
+    Title = 'Text'
+    Left = 256
+    Top = 344
+  end
+end

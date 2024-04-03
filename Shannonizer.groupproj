@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{AE99903F-651B-4FF8-926A-77275E08634D}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="ShannonizerDemo.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Shannonizer_Tester.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="ShannonizerDemo">
+        <MSBuild Projects="ShannonizerDemo.dproj"/>
+    </Target>
+    <Target Name="ShannonizerDemo:Clean">
+        <MSBuild Projects="ShannonizerDemo.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="ShannonizerDemo:Make">
+        <MSBuild Projects="ShannonizerDemo.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Shannonizer_Tester">
+        <MSBuild Projects="Shannonizer_Tester.dproj"/>
+    </Target>
+    <Target Name="Shannonizer_Tester:Clean">
+        <MSBuild Projects="Shannonizer_Tester.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Shannonizer_Tester:Make">
+        <MSBuild Projects="Shannonizer_Tester.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="ShannonizerDemo;Shannonizer_Tester"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="ShannonizerDemo:Clean;Shannonizer_Tester:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="ShannonizerDemo:Make;Shannonizer_Tester:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
