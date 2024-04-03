@@ -1,4 +1,5 @@
-﻿unit Shannonizer;
+// https://github.com/jimmckeeth/Delphi-Shannon-Word-Pairs/
+unit Shannonizer;
 
 interface
 
