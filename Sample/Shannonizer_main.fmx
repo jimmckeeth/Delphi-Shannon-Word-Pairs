@@ -250,6 +250,7 @@ object Form12: TForm12
     Size.Width = 110.000000000000000000
     Size.Height = 22.000000000000000000
     Size.PlatformDefault = False
+    OnChange = seedEditChange
   end
   object Label1: TLabel
     Anchors = [akTop, akRight]
@@ -296,17 +297,19 @@ object Form12: TForm12
     Size.Height = 34.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 3
+    Text = 'Random'
     TextSettings.Trimming = None
     OnClick = randomChkClick
     object randomChk: TCheckBox
-      Align = Center
+      Align = Left
       HitTest = False
       IsChecked = True
-      Size.Width = 65.000000000000000000
-      Size.Height = 22.000000000000000000
+      Margins.Left = 10.000000000000000000
+      Position.X = 10.000000000000000000
+      Size.Width = 22.000000000000000000
+      Size.Height = 34.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 5
-      Text = 'Random'
       OnClick = randomChkClick
     end
   end
@@ -377,15 +380,15 @@ object Form12: TForm12
     FileName = 'Shannonizer.txt'
     Filter = '*.txt|*.txt|*.*|*.*'
     Title = 'Text'
-    Left = 256
-    Top = 288
+    Left = 216
+    Top = 280
   end
   object OpenTextDialog: TOpenDialog
     DefaultExt = '.txt'
     FileName = 'Romeo.txt'
     Filter = '*.txt|*.txt|*.*|*.*'
     Title = 'Text'
-    Left = 256
-    Top = 344
+    Left = 216
+    Top = 336
   end
 end

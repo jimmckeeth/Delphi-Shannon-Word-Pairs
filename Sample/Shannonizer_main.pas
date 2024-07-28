@@ -40,6 +40,7 @@ type
     procedure ClearBtnClick(Sender: TObject);
     procedure LoadTextBtnClick(Sender: TObject);
     procedure SaveTextBtnClick(Sender: TObject);
+    procedure seedEditChange(Sender: TObject);
   private
     { Private declarations }
     FShannon: TShannonizer;
@@ -74,8 +75,14 @@ procedure TForm12.CheckRandom;
 begin
   if randomChk.IsChecked then
   begin
-    Randomize;
-    seedEdit.Value := RandSeed;
+    var oldChange := seedEdit.onChange;
+    try
+      seedEdit.OnChange := nil;
+      Randomize;
+      seedEdit.Value := RandSeed;
+    finally
+      seedEdit.OnChange := oldChange;
+    end;
   end;
 end;
 
@@ -126,6 +133,11 @@ procedure TForm12.SaveTextBtnClick(Sender: TObject);
 begin
   if SaveTextDialog.Execute then
     Memo1.Lines.SaveToFile(SaveTextDialog.FileName);
+end;
+
+procedure TForm12.seedEditChange(Sender: TObject);
+begin
+  randomChk.IsChecked := False;
 end;
 
 end.
