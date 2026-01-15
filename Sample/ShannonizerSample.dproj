@@ -7,7 +7,8 @@
         <MainSource>ShannonizerSample.dpr</MainSource>
         <Platform Condition="'$(Platform)'==''">Win32</Platform>
         <ProjectGuid>{33B9FE5E-728C-4B32-8766-04954D175726}</ProjectGuid>
-        <ProjectVersion>20.1</ProjectVersion>
+        <ProjectName Condition="'$(ProjectName)'==''">ShannonizerSample</ProjectName>
+        <ProjectVersion>20.3</ProjectVersion>
         <TargetedPlatforms>693395</TargetedPlatforms>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Config)'=='Base' or '$(Base)'!=''">
@@ -140,7 +141,7 @@
         <IncludeAndroid_VectorizedNotificationIcon>true</IncludeAndroid_VectorizedNotificationIcon>
         <IncludeAndroid_VectorizedSplash>true</IncludeAndroid_VectorizedSplash>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
-        <VerInfo_Keys>package=com.embarcadero.$(MSBuildProjectName);label=$(MSBuildProjectName);versionCode=1;versionName=1.0.0;persistent=False;restoreAnyVersion=False;installLocation=auto;largeHeap=False;theme=TitleBar;hardwareAccelerated=true;apiKey=</VerInfo_Keys>
+        <VerInfo_Keys>package=com.embarcadero.$(MSBuildProjectName);label=$(MSBuildProjectName);versionCode=1;versionName=1.0.0;persistent=False;restoreAnyVersion=False;installLocation=auto;largeHeap=False;theme=TitleBar;hardwareAccelerated=true;apiKey=;minSdkVersion=23;targetSdkVersion=35</VerInfo_Keys>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base_Android64)'!=''">
         <Android_AdaptiveIconBackground>$(BDS)\bin\Artwork\Android\FM_AdaptiveIcon_Background.xml</Android_AdaptiveIconBackground>
@@ -174,7 +175,7 @@
         <IncludeAndroid_VectorizedNotificationIcon>true</IncludeAndroid_VectorizedNotificationIcon>
         <IncludeAndroid_VectorizedSplash>true</IncludeAndroid_VectorizedSplash>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
-        <VerInfo_Keys>package=com.embarcadero.$(MSBuildProjectName);label=$(MSBuildProjectName);versionCode=1;versionName=1.0.0;persistent=False;restoreAnyVersion=False;installLocation=auto;largeHeap=False;theme=TitleBar;hardwareAccelerated=true;apiKey=</VerInfo_Keys>
+        <VerInfo_Keys>package=com.embarcadero.$(MSBuildProjectName);label=$(MSBuildProjectName);versionCode=1;versionName=1.0.0;persistent=False;restoreAnyVersion=False;installLocation=auto;largeHeap=False;theme=TitleBar;hardwareAccelerated=true;apiKey=;minSdkVersion=23;targetSdkVersion=35</VerInfo_Keys>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base_Linux64)'!=''">
         <DCC_UsePackage>DataSnapServer;fmx;DbxCommonDriver;bindengine;FireDACCommonODBC;emsclient;IndyProtocols;dbxcds;FlexCel_Pdf;SKIA_FlexCel_Core;FireDACSqliteDriver;DbxClientDriver;soapmidas;dbexpress;inet;CustomIPTransport;FireDACMSSQLDriver;IndySystem;FlexCel_Render;FireDACCommon;DataSnapServerMidas;FireDACODBCDriver;emsserverresource;rtl;FireDACMySQLDriver;DataSnapFireDAC;FireDAC;xmlrtl;dsnap;FireDACDb2Driver;DataSnapNativeClient;DatasnapConnectorsFreePascal;FlexCel_Report;emshosting;FireDACCommonDriver;emsedge;inetdb;FireDACASADriver;FireDACInfxDriver;DataSnapCommon;dbrtl;FireDACOracleDriver;FlexCel_XlsAdapter;DataSnapIndy10ServerTransport;DataSnapConnectors;FireDACMongoDBDriver;FireDACTDataDriver;FlexCel_Core;bindcomp;IndyCore;RESTBackendComponents;FireDACADSDriver;RESTComponents;dsnapxml;DataSnapClient;emsclientfiredac;FireDACPgDriver;CloudService;BigNumbers;soaprtl;soapserver;FireDACIBDriver;$(DCC_UsePackage)</DCC_UsePackage>

@@ -7,7 +7,8 @@
         <MainSource>Shannonizer_Tester.dpr</MainSource>
         <Platform Condition="'$(Platform)'==''">Win32</Platform>
         <ProjectGuid>{8BA78AC0-2303-4DAF-A191-BB4FC7FD159B}</ProjectGuid>
-        <ProjectVersion>20.1</ProjectVersion>
+        <ProjectName Condition="'$(ProjectName)'==''">Shannonizer_Tester</ProjectName>
+        <ProjectVersion>20.3</ProjectVersion>
         <TargetedPlatforms>1</TargetedPlatforms>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Config)'=='Base' or '$(Base)'!=''">

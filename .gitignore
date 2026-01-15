@@ -69,3 +69,4 @@ __recovery/
 modules/
 **/Debug/**
 **/Release/**
+Sample/ShannonizerSample.delphilsp.json
